@@ -1,0 +1,42 @@
+{
+  "name": "slugizoid",
+  "version": "0.0.1",
+  "description": "A package for managing REST API slugs",
+  "scripts": {
+    "build": "webpack -p",
+    "test": "jest",
+    "precommit": "lint-staged"
+  },
+  "main": "index.js",
+  "repository": "git@github.com:mb3online/slugizoid.git",
+  "author": "Eric Adamski <er.adamski@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-jest": "^21.2.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "chai": "^4.1.2",
+    "cz-conventional-changelog": "^2.0.0",
+    "flow-bin": "^0.57.3",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "lint-staged": "^4.3.0",
+    "prettier": "^1.7.4",
+    "webpack": "^3.8.1"
+  },
+  "jest": {
+    "rootDir": "./",
+    "testMatch": ["**/__tests__/**/*.spec.js?(x)"]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json}": [
+      "prettier --write --config ./.prettierrc.json --config-precedence prefer-file",
+      "git add"
+    ]
+  }
+}
