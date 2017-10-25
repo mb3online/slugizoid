@@ -1,7 +1,7 @@
 import pluralize, { singular } from 'pluralize';
 
 function normalize(slug: string): string {
-  return singular(slug.toLowerCase()).replace(/(-|_|\.)+/g, '_');
+  return singular(slug.toLowerCase()).replace(/(-|_|\.|\s)+/g, '_');
 }
 
 function urlify(slug: string): string {
