@@ -5,6 +5,8 @@
   "scripts": {
     "build": "webpack -p",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "precommit": "lint-staged"
   },
   "main": "index.js",
@@ -14,6 +16,7 @@
   "devDependencies": {
     "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.2",
     "cz-conventional-changelog": "^2.0.0",
@@ -22,6 +25,7 @@
     "jest": "^21.2.1",
     "lint-staged": "^4.3.0",
     "prettier": "^1.7.4",
+    "regenerator-runtime": "^0.11.0",
     "webpack": "^3.8.1"
   },
   "jest": {
@@ -38,5 +42,8 @@
       "prettier --write --config ./.prettierrc.json --config-precedence prefer-file",
       "git add"
     ]
+  },
+  "dependencies": {
+    "pluralize": "^7.0.0"
   }
 }
