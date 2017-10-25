@@ -6,6 +6,7 @@
     "commit": "git-cz",
     "build": "webpack -p",
     "test": "jest",
+    "test:ci": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged",
@@ -36,7 +37,9 @@
   },
   "jest": {
     "rootDir": "./",
-    "testMatch": ["**/__tests__/**/*.spec.js?(x)"]
+    "testMatch": ["**/__tests__/**/*.spec.js?(x)"],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "config": {
     "commitizen": {
