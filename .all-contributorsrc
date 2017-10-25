@@ -1,0 +1,20 @@
+{
+  "projectName": "slugizoid",
+  "projectOwner": "mb3online",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "frytyler",
+      "name": "Tyler Fry",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1922965?v=4",
+      "profile": "https://github.com/frytyler",
+      "contributions": [
+        "code"
+      ]
+    }
+  ]
+}
