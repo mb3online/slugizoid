@@ -31,8 +31,13 @@ export default class Slug {
     this._normalized = normalize(slug);
   }
 
-  toString(options: { format: string } = { format: 'pascal' }): string {
-    return formats[options.format](this._normalized);
+  toString(options: { format: string, plural: boolean }): string {
+    const { format, plural } = Object.assign(
+      { format: 'pascal', plural: false },
+      options
+    );
+
+    return (plural ? pluralize : singular)(formats[format](this._normalized));
   }
 
   equals(slug: string): boolean {

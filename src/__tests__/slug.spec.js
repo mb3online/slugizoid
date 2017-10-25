@@ -4,14 +4,14 @@ import Slug from '../index';
 
 describe('Slug', () => {
   describe('.toString', () => {
-    it('should be a function with arity 0', () => {
+    it('should be a function with arity 1', () => {
       // Arrange
       const slug = new Slug('pull_request');
 
       // Assert
       expect(slug.toString)
         .to.be.a('function')
-        .with.lengthOf(0);
+        .with.lengthOf(1);
     });
 
     it('should return a singular space deliminated pascal case by default', () => {
@@ -23,6 +23,16 @@ describe('Slug', () => {
     });
 
     describe('options', () => {
+      describe('.plural', () => {
+        it('should allow pluralized readable verison of slug', () => {
+          // Arrange
+          const slug = new Slug('pull_request');
+
+          // Assert
+          expect(slug.toString({ plural: true })).to.equal('Pull Requests');
+        });
+      });
+
       describe('.format', () => {
         it('should allow formating of camel 🐫', async () => {
           // Arrange
@@ -30,6 +40,16 @@ describe('Slug', () => {
 
           // Assert
           expect(slug.toString({ format: 'camel' })).to.equal('pullRequest');
+        });
+
+        it('should allow formating of camel 🐫  and pluarl', async () => {
+          // Arrange
+          const slug = new Slug('pull_request');
+
+          // Assert
+          expect(slug.toString({ format: 'camel', plural: true })).to.equal(
+            'pullRequests'
+          );
         });
       });
     });
@@ -73,7 +93,7 @@ describe('Slug', () => {
 
     it('should always return the pluralized, - deliminated verions of slug', () => {
       // Arrange
-      const slug = new Slug('pull-requests');
+      const slug = new Slug('pull_request');
 
       // Act
       const result = slug.urlify();
