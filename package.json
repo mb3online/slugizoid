@@ -4,7 +4,7 @@
   "description": "A package for managing REST API slugs",
   "scripts": {
     "commit": "git-cz",
-    "build": "webpack -p",
+    "build": "webpack -p && git add index.js",
     "test": "jest",
     "test:ci": "jest",
     "test:watch": "jest --watch",
