@@ -10,7 +10,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged",
-    "contributor:add": "all-contributors add",
+    "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "semantic-release":
       "semantic-release pre && npm publish && semantic-release post"
