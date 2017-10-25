@@ -1,7 +1,7 @@
 import pluralize, { singular } from 'pluralize';
 
 function normalize(slug: string): string {
-  return singular(slug).replace(/(-|_|\.)+/g, '_');
+  return singular(slug.toLowerCase()).replace(/(-|_|\.)+/g, '_');
 }
 
 function urlify(slug: string): string {
@@ -25,30 +25,30 @@ const formats = {
   },
 };
 
-export default class Slug {
-  constructor(slug: string = ''): Slug {
-    this._original = slug;
-    this._normalized = normalize(slug);
-  }
+export default function slugizoid(slug: string = ''): string {
+  const _original = slug;
+  const _normalized = normalize(slug);
 
-  toString(options: { format: string, plural: boolean }): string {
-    const { format, plural } = Object.assign(
-      { format: 'pascal', plural: false },
-      options
-    );
+  return {
+    toString(options: { format: 'pascal' | 'camel', plural: boolean }): string {
+      const { format, plural } = Object.assign(
+        { format: 'pascal', plural: false },
+        options
+      );
 
-    return (plural ? pluralize : singular)(formats[format](this._normalized));
-  }
+      return (plural ? pluralize : singular)(formats[format](_normalized));
+    },
 
-  equals(slug: string): boolean {
-    return normalize(slug) === this._normalized;
-  }
+    equals(slug: string): boolean {
+      return normalize(slug) === _normalized;
+    },
 
-  slugify(): string {
-    return this._normalized;
-  }
+    slugify(): string {
+      return _normalized;
+    },
 
-  urlify(): string {
-    return urlify(this._normalized);
-  }
+    urlify(): string {
+      return urlify(_normalized);
+    },
+  };
 }

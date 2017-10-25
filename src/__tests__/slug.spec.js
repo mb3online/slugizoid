@@ -1,12 +1,12 @@
 import { expect } from 'chai';
 
-import Slug from '../index';
+import slugizoid from '../index';
 
-describe('Slug', () => {
+describe('slugizoid', () => {
   describe('.toString', () => {
     it('should be a function with arity 1', () => {
       // Arrange
-      const slug = new Slug('pull_request');
+      const slug = slugizoid('pUll_reQUeSt');
 
       // Assert
       expect(slug.toString)
@@ -16,7 +16,7 @@ describe('Slug', () => {
 
     it('should return a singular space deliminated pascal case by default', () => {
       // Arrange
-      const slug = new Slug('pull_request');
+      const slug = slugizoid('pull_request');
 
       // Assert
       expect(slug.toString()).to.equal('Pull Request');
@@ -26,7 +26,7 @@ describe('Slug', () => {
       describe('.plural', () => {
         it('should allow pluralized readable verison of slug', () => {
           // Arrange
-          const slug = new Slug('pull_request');
+          const slug = slugizoid('pull_request');
 
           // Assert
           expect(slug.toString({ plural: true })).to.equal('Pull Requests');
@@ -36,15 +36,15 @@ describe('Slug', () => {
       describe('.format', () => {
         it('should allow formating of camel 🐫', async () => {
           // Arrange
-          const slug = new Slug('pull_request');
+          const slug = slugizoid('pull_request');
 
           // Assert
           expect(slug.toString({ format: 'camel' })).to.equal('pullRequest');
         });
 
-        it('should allow formating of camel 🐫  and pluarl', async () => {
+        it('should allow formating of camel 🐫  and plural', async () => {
           // Arrange
-          const slug = new Slug('pull_request');
+          const slug = slugizoid('pull_request');
 
           // Assert
           expect(slug.toString({ format: 'camel', plural: true })).to.equal(
@@ -58,7 +58,7 @@ describe('Slug', () => {
   describe('slugify', () => {
     it('should be a function with artiy 0', () => {
       // Arrange
-      const slug = new Slug('pull_request');
+      const slug = slugizoid('pull_request');
 
       // Assert
       expect(slug.slugify)
@@ -68,7 +68,7 @@ describe('Slug', () => {
 
     it('should always return the singular, _ deliminated verison of slug', () => {
       // Arrange
-      const slug = new Slug('pull-requests');
+      const slug = slugizoid('pull-requests');
 
       // Act
       const result = slug.slugify();
@@ -83,7 +83,7 @@ describe('Slug', () => {
   describe('.urlify', () => {
     it('should be a function with arity 0', () => {
       // Arrange
-      const slug = new Slug('pull_request');
+      const slug = slugizoid('pull_request');
 
       // Assert
       expect(slug.urlify)
@@ -93,7 +93,7 @@ describe('Slug', () => {
 
     it('should always return the pluralized, - deliminated verions of slug', () => {
       // Arrange
-      const slug = new Slug('pull_request');
+      const slug = slugizoid('pull_request');
 
       // Act
       const result = slug.urlify();
@@ -107,10 +107,10 @@ describe('Slug', () => {
   describe('creation', () => {
     const expectedSlug = 'pull_request';
 
-    describe('plurarl', () => {
+    describe('plural', () => {
       it('_ deliminated', () => {
         // Arrange
-        const slug = new Slug('pull_requests');
+        const slug = slugizoid('pull_requests');
 
         // Assert
         expect(slug.slugify()).to.be.equal(expectedSlug);
@@ -118,7 +118,7 @@ describe('Slug', () => {
 
       it('- deliminated', () => {
         // Arrange
-        const slug = new Slug('pull-requests');
+        const slug = slugizoid('pull-requests');
 
         // Assert
         expect(slug.slugify()).to.be.equal(expectedSlug);
@@ -128,7 +128,7 @@ describe('Slug', () => {
     describe('singular', () => {
       it('_ deliminated', () => {
         // Arrange
-        const slug = new Slug('pull_request');
+        const slug = slugizoid('pull_request');
 
         // Assert
         expect(slug.slugify()).to.be.equal(expectedSlug);
@@ -136,7 +136,7 @@ describe('Slug', () => {
 
       it('- deliminated', () => {
         // Arrange
-        const slug = new Slug('pull-request');
+        const slug = slugizoid('pull-request');
 
         // Assert
         expect(slug.slugify()).to.be.equal(expectedSlug);
@@ -148,7 +148,7 @@ describe('Slug', () => {
     describe('.equals', () => {
       it('should be a function with arity of 1', () => {
         // Arrange
-        const slug = new Slug();
+        const slug = slugizoid();
 
         // Assert
         expect(slug.equals)
@@ -158,7 +158,7 @@ describe('Slug', () => {
 
       it('should match singular underscore deliminated version of slug', () => {
         // Arrange
-        const slug = new Slug('pull-request');
+        const slug = slugizoid('pull-request');
 
         // Assert
         expect(slug.equals('pull-requests')).to.be.true;
