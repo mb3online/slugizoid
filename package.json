@@ -15,6 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-2": "^6.24.1",
@@ -40,6 +41,7 @@
   "lint-staged": {
     "*.{js,json}": [
       "prettier --write --config ./.prettierrc.json --config-precedence prefer-file",
+      "yarn build",
       "git add"
     ]
   },
