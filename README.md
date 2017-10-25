@@ -2,6 +2,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![codecov](https://codecov.io/gh/mb3online/slugizoid/branch/develop/graph/badge.svg)](https://codecov.io/gh/mb3online/slugizoid)
 
 👽 Slugizoïd - Package for managing REST API slugs
 
