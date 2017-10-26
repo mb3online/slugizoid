@@ -25,12 +25,21 @@ const formats = {
   },
 };
 
-export default function slugizoid(slug: string = ''): string {
+export default function slugizoid(
+  slug: string = ''
+): {
+  toString: () => string,
+  equals: (slug: string) => boolean,
+  slugify: () => string,
+  urlify: () => string,
+} {
   const _original = slug;
   const _normalized = normalize(slug);
 
   return {
-    toString(options: { format: 'pascal' | 'camel', plural: boolean }): string {
+    toString(
+      options: ?{ format: 'pascal' | 'camel', plural: boolean }
+    ): string {
       const { format, plural } = Object.assign(
         { format: 'pascal', plural: false },
         options
