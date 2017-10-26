@@ -24,3 +24,4 @@ test:
     - yarn test:ci
   post:
     - bash <(curl -s https://codecov.io/bash)
+    - yarn semantic-release || true
