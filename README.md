@@ -79,7 +79,7 @@ const slug = slugizoid('pUlL-REquests');
 console.log(slug.slugify()); // pull_request
 ```
 
-### `urlify`
+#### `urlify`
 
 `function urlify(): string`
 
@@ -93,7 +93,7 @@ const slug = slugizoid('pUlL-REquests');
 console.log(slug.urlify()); // pull-requests
 ```
 
-### `toString`
+#### `toString`
 
 `function toString(options: ?{ plural: boolean }): string`
 
