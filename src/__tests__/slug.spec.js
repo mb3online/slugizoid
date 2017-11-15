@@ -109,7 +109,7 @@ describe('slugizoid', () => {
 
     it('should remove non-alphanumeric characters', () => {
       // Arrange
-      const slug = slugizoid('pull)*&^%$#@!(=+}{][]}/\'"`;:.,request');
+      const slug = slugizoid('pull)*&^% -_$#@!(=+}{][]}/\'"`;:.,request');
 
       // Assert
       expect(slug.slugify()).to.be.equal(expectedSlug);
