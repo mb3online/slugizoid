@@ -33,6 +33,7 @@
     "commitizen": "^2.9.6",
     "condition-circle": "^1.5.0",
     "cz-conventional-changelog": "^2.0.0",
+    "cz-emoji": "^1.1.0",
     "flow-bin": "^0.57.3",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
@@ -49,9 +50,7 @@
     "collectCoverage": true
   },
   "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "cz-emoji": {}
   },
   "lint-staged": {
     "*.{js,json}": [
