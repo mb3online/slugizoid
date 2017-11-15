@@ -107,6 +107,14 @@ describe('slugizoid', () => {
   describe('creation', () => {
     const expectedSlug = 'pull_request';
 
+    it('should remove non-alphanumeric characters', () => {
+      // Arrange
+      const slug = slugizoid('pull)*&^%$#@!(=+}{][]}/\'"`;:.,request');
+
+      // Assert
+      expect(slug.slugify()).to.be.equal(expectedSlug);
+    });
+
     describe('plural', () => {
       it('_ deliminated', () => {
         // Arrange
@@ -119,6 +127,14 @@ describe('slugizoid', () => {
       it('- deliminated', () => {
         // Arrange
         const slug = slugizoid('pull-requests');
+
+        // Assert
+        expect(slug.slugify()).to.be.equal(expectedSlug);
+      });
+
+      it('<space> deliminated', () => {
+        // Arrange
+        const slug = slugizoid('pull requests');
 
         // Assert
         expect(slug.slugify()).to.be.equal(expectedSlug);
@@ -137,6 +153,14 @@ describe('slugizoid', () => {
       it('- deliminated', () => {
         // Arrange
         const slug = slugizoid('pull-request');
+
+        // Assert
+        expect(slug.slugify()).to.be.equal(expectedSlug);
+      });
+
+      it('<space> deliminated', () => {
+        // Arrange
+        const slug = slugizoid('pull request');
 
         // Assert
         expect(slug.slugify()).to.be.equal(expectedSlug);
