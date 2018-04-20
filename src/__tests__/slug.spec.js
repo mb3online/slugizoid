@@ -91,7 +91,7 @@ describe('slugizoid', () => {
         .with.lengthOf(0);
     });
 
-    it('should output the corrent slug with long words', () => {
+    it('should output the correct slug with long words', () => {
       // Assert
       expect(
         slugizoid('this is a really  long slug name').urlify()
