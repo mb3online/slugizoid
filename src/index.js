@@ -5,7 +5,7 @@ function normalize(slug: string): string {
 }
 
 function urlify(slug: string): string {
-  return pluralize(slug).replace('_', '-');
+  return pluralize(slug).replace(/_/g, '-');
 }
 
 const formats = {
