@@ -91,6 +91,13 @@ describe('slugizoid', () => {
         .with.lengthOf(0);
     });
 
+    it('should output the correct slug with long words', () => {
+      // Assert
+      expect(
+        slugizoid('this is a really  long slug name').urlify()
+      ).to.be.equal('this-is-a-really-long-slug-names');
+    });
+
     it('should always return the pluralized, - deliminated verions of slug', () => {
       // Arrange
       const slug = slugizoid('pull_request');
